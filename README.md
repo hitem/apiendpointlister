@@ -10,11 +10,13 @@ API Endpoint Lister is a Python script designed to fetch and list all API endpoi
 
 ### Example: 
 Input URL file: `http://example.com/swagger/v1/swagger.json` \
-~**Script runs, magic 🧙 happens** - **gandalf quotes**~  
+~ **Script runs, magic 🧙 happens** ~  
 Output:\
-`http://example.com/api/v1/{userid}/Service/PostUpdate` 
-`http://example.com/api/v1/{userid}/Service/PostUpdate/{id}`
+`http://example.com/api/v1/{userid}/Service/PostUpdate` \
+`http://example.com/api/v1/{userid}/Service/PostUpdate/{id}`\
 `http://example.com/api/v1/{memberid}/Service/Change/Post`
+
+![image](https://github.com/hitem/apiendpointlister/assets/8977898/d46dd038-b5be-432b-9def-cbd327c2d7da)
 
 ## Installation
 
