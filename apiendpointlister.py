@@ -95,6 +95,8 @@ def extract_endpoints(swagger_json, base_url):
         endpoints.append(base_url + path)
     return endpoints
 
+from urllib.parse import urlparse, urlunparse
+
 def process_urls(input_file, output_file):
     with open(input_file, 'r') as file:
         urls = file.readlines()
@@ -103,7 +105,14 @@ def process_urls(input_file, output_file):
 
     for url in urls:
         url = url.strip()
-        base_url = '{uri.scheme}://{uri.netloc}'.format(uri=urlparse(url))
+        
+        parsed_url = urlparse(url)
+        if not parsed_url.scheme:
+            url = 'https://' + url
+            parsed_url = urlparse(url)
+        
+        base_url = '{uri.scheme}://{uri.netloc}'.format(uri=parsed_url)
+        
         swagger_json = fetch_swagger_json(url)
         if swagger_json:
             endpoints = extract_endpoints(swagger_json, base_url)
